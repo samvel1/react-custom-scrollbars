@@ -1,8 +1,14 @@
 
-declare namespace __RCS {
-    import React = __React;
+// Type definitions for react-css-transition-replace 2.0.1
+// Project: https://github.com/malte-wessel/react-custom-scrollbars
+// Definitions by: David-LeBlanc-git <https://github.com/David-LeBlanc-git>
+// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
+// TypeScript Version: 2.1
 
-    interface positionValues {
+import * as React from "react";
+
+declare module "react-custom-scrollbars" {
+    export interface positionValues {
         top: number;
         left: number;
         clientWidth: number;
@@ -13,8 +19,8 @@ declare namespace __RCS {
         scrollTop: number;
     }
 
-    interface props extends React.HTMLProps<ScrollBar> {
-        onScroll?: React.UIEventHandler;
+    export interface ScrollbarProps extends React.HTMLProps<Scrollbars> {
+        onScroll?: React.UIEventHandler<any>;
         onScrollFrame?: (values: positionValues) => void;
         onScrollStart?: () => void;
         onScrollStop?: () => void;
@@ -35,7 +41,7 @@ declare namespace __RCS {
         universal?: boolean;
     }
 
-    class ScrollBar extends React.Component<props, {}> {
+    export default class Scrollbars extends React.Component<ScrollbarProps, {}> {
         scrollTop(top: number): void;
         scrollLeft(left: number): void;
         scrollToTop(): void;
@@ -49,12 +55,5 @@ declare namespace __RCS {
         getWidth(): number;
         getHeight(): number;
         getValues(): positionValues;
-    }
-}
-
-declare module 'react-custom-scrollbars' {
-    var Scrollbars: typeof __RCS.ScrollBar;
-    export {
-        Scrollbars,
     }
 }
